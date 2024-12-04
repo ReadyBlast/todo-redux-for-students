@@ -8,9 +8,11 @@ const TodoList = () => {
     const dispatch = useDispatch();
     const todos = useSelector((state) => state);
 
+    const addTodoAction = (todoText) => ({ type: 'ADD_TODO', text: todoText })
+
     const addTodo = () => {
         if (newTodo !== '') {
-            dispatch({ type: 'ADD_TODO', text: newTodo });
+            dispatch(addTodoAction(newTodo));
             setNewTodo('');
         }
     };

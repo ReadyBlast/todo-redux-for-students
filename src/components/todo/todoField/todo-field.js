@@ -9,8 +9,10 @@ const TodoField = ({ text, id, status }) => {
 
     const dispatch = useDispatch();
 
+    const deleteTodoAction = (id) => ({ type: 'DELETE_TODO', id: id });
+
     const deleteTodo = () => {
-        dispatch({ type: 'DELETE_TODO', id: id });
+        dispatch(deleteTodoAction(id));
     };
 
     const showInput = () => {
