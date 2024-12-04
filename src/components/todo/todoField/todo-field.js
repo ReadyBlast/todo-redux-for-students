@@ -10,9 +10,14 @@ const TodoField = ({ text, id, status }) => {
     const dispatch = useDispatch();
 
     const deleteTodoAction = (id) => ({ type: 'DELETE_TODO', id: id });
+    const changeToDoneAction = (id) => ({ type: 'CHANGE_DONE', id: id });
 
     const deleteTodo = () => {
         dispatch(deleteTodoAction(id));
+    };
+
+    const changeDone = () => {
+        dispatch(changeToDoneAction(id));
     };
 
     const showInput = () => {
@@ -56,7 +61,9 @@ const TodoField = ({ text, id, status }) => {
             <button className="delBtn" onClick={deleteTodo}>
                 🗑️
             </button>
-            <button className="complitedBtn">✔️</button>
+            <button className="complitedBtn" onClick={changeDone}>
+                ✔️
+            </button>
         </div>
     );
 };
